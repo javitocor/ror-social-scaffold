@@ -4,11 +4,11 @@
     <%= link_to 'Send friend request', send_friend_user_path, class: 'profile-link' %>
   <% end %>
 
-  <% if @pending_requests.any? %>
+  <% if @pending_requests.any? && current_user == @user %>
     <h3>Pending friendship requests</h3>
     <ul>
       <% @pending_requests.each do |request| %>
-        <li><%= request.friend.name %></li>
+        <li><%= request.friend.name %> | <%= accept_friend(request) %> | <%= reject_friend(request) %></li>
       <% end %>
     </ul>
   <% end %>

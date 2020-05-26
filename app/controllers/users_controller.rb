@@ -17,9 +17,16 @@ class UsersController < ApplicationController
     redirect_to users_path, notice: 'Friend request sent.'
   end
 
-  def accept_friend(friendship)
+  def update_friend 
+    @friendship = Friendship.find(params[:id])
+    @friendship.update(confirmed: true)
+    redirect_to current_user
   end
 
-  def reject_friend(friendship)
+  def destroy_friend
+    @friendship = Friendship.find(params[:id])
+    @friendship.destroy
+    redirect_to current_user
   end
+
 end

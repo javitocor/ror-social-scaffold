@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do 
     member do 
       get 'send_friend'
+      patch 'update_friend'
+      delete 'destroy_friend'
     end
   end
 
