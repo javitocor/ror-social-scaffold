@@ -4,12 +4,14 @@
     <%= link_to 'Send friend request', send_friend_user_path, class: 'profile-link' %>
   <% end %>
 
-  <h3>Pending friendship requests</h3>
-  <ul>
-    <% @pending_requests.each do |request| %>
-      <%= request. %>
-    <% end %>
-  </ul>
+  <% if @pending_requests.any? %>
+    <h3>Pending friendship requests</h3>
+    <ul>
+      <% @pending_requests.each do |request| %>
+        <li><%= request.friend.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <article class="timeline">
     <h3>Recent posts:</h3>

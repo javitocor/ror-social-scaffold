@@ -15,4 +15,8 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def friends_check
+    return true if Friendship.where(user_id: current_user.id, friend_id: params[:id], confirmed: true)
+  end
 end

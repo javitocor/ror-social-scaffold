@@ -6,7 +6,7 @@
         <span class="profile-link">
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %> | 
         </span>
-        <% if current_user != user %>
+        <% if current_user != user || !friends_check %>
           <%= link_to 'Send friend request', "/users/#{user.id}/send_friend", class: 'profile-link' %>
         <% end %>
       </li>
