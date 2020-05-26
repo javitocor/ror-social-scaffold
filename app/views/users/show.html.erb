@@ -1,5 +1,16 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
+  <% if current_user != @user %>
+    <%= link_to 'Send friend request', send_friend_user_path, class: 'profile-link' %>
+  <% end %>
+
+  <h3>Pending friendship requests</h3>
+  <ul>
+    <% @pending_requests.each do |request| %>
+      <%= request. %>
+    <% end %>
+  </ul>
+
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
