@@ -5,11 +5,11 @@ RSpec.describe UsersController, type: :feature do
     context 'GET users controller views' do
         let(:user) { User.create(id: '1', name: 'Peter', email: 'peter@example.com', password: 'password') }
         before :each do 
-        visit new_user_session_path
-        fill_in 'user_email', with: user.email
-        fill_in 'user_password', with: user.password
-        click_button 'Log in'
-    end
+            visit new_user_session_path
+            fill_in 'user_email', with: user.email
+            fill_in 'user_password', with: user.password
+            click_button 'Log in'
+        end
         it 'Get #index' do
             visit users_path
             expect(page).to have_content('See Profile') 
@@ -74,3 +74,4 @@ RSpec.describe 'Testing Accept and Decline friend requests', type: :feature do
         expect(page).to have_content('Send friend request')
     end 
 end
+
