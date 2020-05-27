@@ -17,7 +17,13 @@ module ApplicationHelper
   end
 
   def friends_check(user)
-    return true if Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: true) || Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: true)
+    return false unless Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: true).exists? || Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: true).exists?
+    true
+  end
+
+  def pending_request(user)
+    return false unless Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: false).exists? || Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: false).exists?
+    true
   end
   
   def accept_friend(friendship)

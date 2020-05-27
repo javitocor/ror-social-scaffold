@@ -1,16 +1,21 @@
 <section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
-  <% if current_user != @user %>
+  <h2><%= "Name: #{@user.name}" %></h2>  
+  <% if current_user != @user && friends_check(@user) == false && pending_request(@user) == false %>
     <%= link_to 'Send friend request', send_friend_user_path, class: 'profile-link' %>
+  <% elsif pending_request(@user) %>
+    <span class= 'profile-link'>Friend request already sent</span> 
+  <% elsif friends_check(@user) %>
+    <span class= 'profile-link'>Friends!!!</span> 
   <% end %>
-
-  <% if @pending_requests.any? && current_user == @user %>
-    <h3>Pending friendship requests</h3>
-    <ul>
-      <% @pending_requests.each do |request| %>
-        <li><%= request.friend.name %> | <%= accept_friend(request) %> | <%= reject_friend(request) %></li>
-      <% end %>
-    </ul>
+  <% if current_user == @user %>
+    <% if @pending_requests.any? %>
+      <h3>Pending friendship requests</h3>
+      <ul>
+        <% @pending_requests.each do |request| %>
+          <li><%= request.user.name %> | <%= accept_friend(request) %> | <%= reject_friend(request) %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 
   <article class="timeline">

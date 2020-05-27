@@ -6,10 +6,12 @@
         <span class="profile-link">
           <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %> | 
         </span>
-        <% if current_user != user && !friends_check(user) %>
+        <% if current_user != user && friends_check(user) == false && pending_request(user) == false %>
           <%= link_to 'Send friend request', "/users/#{user.id}/send_friend", class: 'profile-link' %>
-        <% else %>
-          <p class='profile-link' >You are already friends</p>
+        <% elsif pending_request(user) %>
+          <span class= 'profile-link'>Friend request already sent</span> 
+        <% elsif friends_check(user) %>
+          <span class= 'profile-link'>Friends!!!</span> 
         <% end %>
       </li>
     <% end %>
