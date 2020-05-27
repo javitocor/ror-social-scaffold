@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # rubocop:disable  Layout/LineLength
   def menu_link_to(link_text, link_path)
     class_name = current_page?(link_path) ? 'menu-item active' : 'menu-item'
 
@@ -17,15 +18,21 @@ module ApplicationHelper
   end
 
   def friends_check(user)
-    return false unless Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: true).exists? || Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: true).exists?
+    unless Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: true).exists? || Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: true).exists?
+      return false
+    end
+
     true
   end
 
   def pending_request(user)
-    return false unless Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: false).exists? || Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: false).exists?
+    unless Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: false).exists? || Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: false).exists?
+      return false
+    end
+
     true
   end
-  
+
   def accept_friend(friendship)
     link_to('Accept', update_friend_user_path(id: friendship.id), method: :patch)
   end
@@ -33,4 +40,5 @@ module ApplicationHelper
   def reject_friend(friendship)
     link_to('Decline', destroy_friend_user_path(id: friendship.id), method: :delete)
   end
+  # rubocop:enable  Layout/LineLength
 end

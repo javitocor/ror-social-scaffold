@@ -27,5 +27,4 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(reject_friend(friendship)).to have_content('Decline')
     end
   end
-
 end
