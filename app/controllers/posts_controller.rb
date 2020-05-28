@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
   private
 
-  def friends_posts(user)    
+  def friends_posts(user)
     user if friends_check(User.find(user)) || current_user.id == user
   end
 

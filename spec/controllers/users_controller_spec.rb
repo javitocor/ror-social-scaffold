@@ -19,7 +19,7 @@ RSpec.describe UsersController, type: :feature do
       expect(page).to have_content('Name:')
     end
   end
-  context 'Testing send friend request' do 
+  context 'Testing send friend request' do
     let(:user) { User.create(id: '1', name: 'Peter', email: 'peter@example.com', password: 'password') }
     before :each do
       User.create(id: '2', name: 'Mick', email: 'mick@example.com', password: 'password')
@@ -40,7 +40,7 @@ RSpec.describe UsersController, type: :feature do
       expect(page).to have_content('Friend request pending')
     end
   end
-  context 'Testing Accept and Decline friend requests' do 
+  context 'Testing Accept and Decline friend requests' do
     let(:user) { User.create(id: '1', name: 'Peter', email: 'peter@example.com', password: 'password') }
     before :each do
       user2 = User.create(id: '2', name: 'Mick', email: 'mick@example.com', password: 'password')
@@ -70,7 +70,7 @@ RSpec.describe UsersController, type: :feature do
       expect(page).to have_content('Send friend request')
     end
   end
-  context 'Testing unfriend button' do 
+  context 'Testing unfriend button' do
     let(:user) { User.create(id: '1', name: 'Peter', email: 'peter@example.com', password: 'password') }
     before :each do
       user2 = User.create(id: '2', name: 'Mick', email: 'mick@example.com', password: 'password')
@@ -89,7 +89,7 @@ RSpec.describe UsersController, type: :feature do
       click_link 'Accept'
       visit users_path
     end
-    scenario 'should unfriend' do 
+    scenario 'should unfriend' do
       click_link 'Unfriend'
       expect(page).to have_content('Send friend request')
     end
