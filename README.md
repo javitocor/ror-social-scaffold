@@ -2,6 +2,10 @@
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
 
+# What it does
+
+In this milestone-5 you can create friendships, send friend requests, accept or decline them. You can also unfriend a user. You will only be able to see posts and profiles of your friends. In your profile you will see all your friends and all the friendship requests.
+
 ## Built With
 
 - Ruby v2.7.0
@@ -37,6 +41,13 @@ Setup database with:
    rails db:migrate
 ```
 
+Create users with:
+
+```
+   rails db:seed
+   Login with email: 'example-{add a number between 1-16}@microverse.org', and password:'password'
+```
+
 
 
 ### Usage
@@ -52,10 +63,8 @@ Open `http://localhost:3000/` in your browser.
 ### Run tests
 
 ```
-    rpsec --format documentation
+    rpsec 
 ```
-
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
 
 ### Deployment
 
@@ -63,7 +72,18 @@ TBA
 
 ## Authors
 
-TBA
+👤 **Tirthajyoti Ghosh **
+
+- Github: [@Tirthajyoti Ghosh](https://github.com/tirthajyoti-ghosh)
+- Twitter: [@terrific_ghosh](https://twitter.com/terrific_ghosh)
+- Linkedin: [Tirthajyoti Ghosh](https://www.linkedin.com/in/tirthajyoti-ghosh-370544199/)
+
+👤 **Javier Oriol Correas Sanchez Cuesta**
+
+- Github: [@javitocor](https://github.com/javitocor)
+- Twitter: [@JavierCorreas4](https://twitter.com/JavierCorreas4)
+- Linkedin: [Javier Oriol Correas Sanchez Cuesta](https://www.linkedin.com/in/javier-correas-sanchez-cuesta-15289482/)
+
 
 ## 🤝 Contributing
 
@@ -77,7 +97,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+- Microverse
+- Stackoverflow
+- The Odin Project
 
 ## 📝 License
 
