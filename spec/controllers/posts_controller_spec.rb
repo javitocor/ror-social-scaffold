@@ -40,5 +40,22 @@ RSpec.describe PostsController, type: :feature do
             click_button 'Log in'
             expect(page).to have_content('and I am a friend')
         end
+        scenario 'cannot see posts if are not friends' do
+            user2 = User.create(id: '2', name: 'Mick', email: 'mick@example.com', password: 'password')            
+            visit new_user_session_path
+            fill_in 'user_email', with: user2.email
+            fill_in 'user_password', with: user2.password
+            click_button 'Log in'
+            visit root_path
+            fill_in 'post_content', with: 'Testing posts with rspec in rails and I am a friend'
+            click_button 'Save'
+            sleep(2)
+            click_link 'Sign out'
+            visit new_user_session_path
+            fill_in 'user_email', with: user.email
+            fill_in 'user_password', with: user.password
+            click_button 'Log in'
+            expect(page).not_to have_content('and I am a friend')
+        end
     end
 end
