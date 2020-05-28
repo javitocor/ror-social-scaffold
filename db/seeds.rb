@@ -5,15 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-15.times do |n|
-    email = "example-#{n+1}@microverse.org"
-    User.create!(
-      name: Faker::Artist.name,
-      email: email,
-      password: 'password',
-      password_confirmation: 'password'
-    )
-    user = User.find(n+1)
-    user.posts.create!(content: 'Hello! I am a testing post')
-  end
