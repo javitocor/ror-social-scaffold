@@ -22,12 +22,12 @@ class UsersController < ApplicationController
   def update_friend
     @friendship = Friendship.find(params[:id])
     @friendship.update(confirmed: true)
-    redirect_to current_user
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy_friend
     @friendship = Friendship.find(params[:id])
     @friendship.destroy
-    redirect_to current_user
+    redirect_back(fallback_location: root_path)
   end
 end
