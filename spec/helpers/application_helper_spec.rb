@@ -17,7 +17,7 @@ RSpec.describe ApplicationHelper, type: :helper do
   let(:friendship) { Friendship.create(user_id: user.id, friend_id: user2.id, confirmed: false) }
 
   context 'Test accept friend method' do
-    it 'Should return a accept link' do
+    it 'Should return an accept link' do
       expect(accept_friend(friendship)).to have_content('Accept')
     end
   end
