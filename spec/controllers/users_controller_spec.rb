@@ -39,7 +39,7 @@ RSpec.describe 'Testing send friend request', type: :feature do
   scenario 'send friend request' do
     visit users_path
     click_link 'Send friend request'
-    expect(page).to have_content('Friend request already sent')
+    expect(page).to have_content('Friend request pending')
   end
 end
 
