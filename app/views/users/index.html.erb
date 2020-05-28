@@ -9,9 +9,9 @@
         <% if current_user != user && friends_check(user) == false && pending_request(user) == false %>
           <%= link_to 'Send friend request', "/users/#{user.id}/send_friend", class: 'profile-link' %>
         <% elsif pending_request(user) %>
-          <span class= 'profile-link'>Friend request already sent</span> 
+          <span class= 'profile-link'>Friend request pending</span> 
         <% elsif friends_check(user) %>
-          <span class= 'profile-link'>Friends!!!</span> 
+          <span class= 'profile-link'>Friends!!!</span> <span class= 'profile-link'><%= unfriend(user) %></span>
         <% end %>
       </li>
     <% end %>

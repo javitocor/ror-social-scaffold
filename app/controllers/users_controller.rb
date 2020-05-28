@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.ordered_by_most_recent
     @pending_requests = @user.inverse_friendships.where(confirmed: false)
+    @friends = @user.friendships.where(confirmed: true)
+    @inverse_friends = @user.inverse_friendships.where(confirmed: true)
   end
 
   def send_friend

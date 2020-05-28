@@ -40,5 +40,12 @@ module ApplicationHelper
   def reject_friend(friendship)
     link_to('Decline', destroy_friend_user_path(id: friendship.id), method: :delete)
   end
+
+  def unfriend(user) 
+    a = Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: true)
+    b = Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: true)
+    friendship =  a.exists? ? a : b
+    link_to('Unfriend', destroy_friend_user_path(id: friendship.ids), method: :delete)
+  end
   # rubocop:enable  Layout/LineLength
 end
