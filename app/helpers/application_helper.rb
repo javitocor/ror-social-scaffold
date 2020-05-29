@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def friends_check(user)
-    unless Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: true).exists? || Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: true).exists?
+    unless Friendship.where(user_id: current_user.id, friend_id: user.id, confirmed: true).exists? && Friendship.where(user_id: user.id, friend_id: current_user.id, confirmed: true).exists?
       return false
     end
 
@@ -30,7 +30,7 @@ module ApplicationHelper
       return false
     end
 
-    @pending_request = current_user.inverse_friendships.where(confirmed: false).first
+    @pending_request = current_user.inverse_friendships.where(confirmed: false, user_id: user.id).first
     true
   end
 
