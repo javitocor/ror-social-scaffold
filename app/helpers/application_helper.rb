@@ -30,7 +30,7 @@ module ApplicationHelper
       return false
     end
 
-    @pending_request = current_user.inverse_friendships.where(confirmed: false, user_id: user.id ).first
+    @pending_request = current_user.inverse_friendships.where(confirmed: false, user_id: user.id).first
     true
   end
 

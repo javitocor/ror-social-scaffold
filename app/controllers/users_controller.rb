@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     redirect_to users_path, notice: 'Friend request sent.'
   end
- 
+
   def update_friend
     @friendship = Friendship.find(params[:id])
     @friendship.update(confirmed: true)
@@ -27,9 +27,13 @@ class UsersController < ApplicationController
 
   def destroy_friend
     @friendship = Friendship.find(params[:id])
+
+    # rubocop:disable Layout/LineLength
     @friendship2 = Friendship.where(user_id: @friendship.friend_id, friend_id: @friendship.user_id, confirmed: true).first
+    # rubocop:enable Layout/LineLength
+
     @friendship.destroy
-    @friendship2.destroy unless @friendship2.nil?
+    @friendship2&.destroy
     redirect_back(fallback_location: root_path)
   end
 end

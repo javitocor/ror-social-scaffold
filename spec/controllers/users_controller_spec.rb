@@ -70,7 +70,7 @@ RSpec.describe UsersController, type: :feature do
       visit users_path
       expect(page).to have_content('Friends!!!')
     end
-    
+
     scenario 'should create a new row with reversed attributes' do
       click_link 'Accept'
       expect(Friendship.where(user_id: '2', friend_id: '1', confirmed: true)).not_to be_empty
@@ -108,7 +108,7 @@ RSpec.describe UsersController, type: :feature do
     scenario 'should unfriend' do
       expect(page).to have_content('Send friend request')
     end
-    
+
     scenario 'should delete the new row with reversed attributes' do
       expect(Friendship.where(user_id: '1', friend_id: '2', confirmed: true)).to be_empty
       expect(Friendship.where(user_id: '2', friend_id: '1', confirmed: true)).to be_empty
