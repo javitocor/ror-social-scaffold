@@ -27,7 +27,7 @@ Its a social media app similar to Facebook.
 
 ## Built With
 
-- Ruby v2.7.0
+- Ruby v2.6.5
 - Ruby on Rails v5.2.4
 
 *Gems used:*
