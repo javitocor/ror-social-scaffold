@@ -4,7 +4,7 @@
 
 # What it does
 
-In this milestone-5 you can create friendships, send friend requests, accept or decline them. You can also unfriend a user. You will only be able to see posts and profiles of your friends. In your profile you will see all your friends and all the friendship requests.
+In this milestone-8 we have deployed the app to Heroku.
 
 ## Built With
 
