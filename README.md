@@ -13,7 +13,7 @@ In this milestone-8 we have deployed the app to Heroku.
 
 ## Live Demo
 
-TBA
+[Live Demo Link](https://protected-meadow-84976.herokuapp.com/users/sign_in)
 
 
 ## Getting Started
@@ -68,7 +68,7 @@ Open `http://localhost:3000/` in your browser.
 
 ### Deployment
 
-TBA
+[Live Demo Link](https://protected-meadow-84976.herokuapp.com/users/sign_in)
 
 ## Authors
 
@@ -87,9 +87,15 @@ TBA
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues and feature requests are welcome! Start by:
 
-Feel free to check the [issues page](issues/).
+- Forking the project.
+- Cloning the project to your local machine.
+- cd into the project directory.
+- Run git checkout -b your-branch-name.
+- Make your contributions.
+- Push your branch up to your forked repository.
+- Open a Pull Request with a detailed description to the development branch of the original project for a review.
 
 ## Show your support
 
