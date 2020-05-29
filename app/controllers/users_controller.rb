@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def update_friend
     @friendship = Friendship.find(params[:id])
     @friendship.update(confirmed: true)
-    @friednship2= Friendship.create(user_id: current_user.id, friend_id: @friendship.user_id, confirmed: true)
+    @friednship2 = Friendship.create(user_id: current_user.id, friend_id: @friendship.user_id, confirmed: true)
     redirect_back(fallback_location: root_path)
   end
 
