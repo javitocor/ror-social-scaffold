@@ -27,7 +27,9 @@ class UsersController < ApplicationController
 
   def destroy_friend
     @friendship = Friendship.find(params[:id])
+    @friendship2 = Friendship.where(user_id: @friendship.friend_id, friend_id: @friendship.user_id, confirmed: true).first
     @friendship.destroy
+    @friendship2.destroy unless @friendship2.nil?
     redirect_back(fallback_location: root_path)
   end
 end
