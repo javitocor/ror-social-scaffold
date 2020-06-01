@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     # rubocop:enable Layout/LineLength
 
     @friendship.destroy
-    @friendship2&.destroy
+    @friendship2.destroy
     redirect_back(fallback_location: root_path)
   end
 end
