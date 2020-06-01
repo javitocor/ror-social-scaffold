@@ -37,8 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
-
-gem 'omniauth', '~> 1.9', '>= 1.9.1'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 gem 'gravatar_image_tag', '~> 1.2'
 
