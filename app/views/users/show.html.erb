@@ -11,19 +11,19 @@
     <span class= 'profile-link'>Friends!!!</span> <%= unfriend(@user) %>
   <% end %>
   <% if current_user == @user %>
-    <% if @pending_requests.any? %>
-      <h4>Pending friendship requests: <%= @pending_requests.count %></h4>
+    <% if @user.incoming_friendships.any? %>
+      <h4>Pending friendship requests: <%= @user.incoming_friendships.count %></h4>
       <ul>
-        <% @pending_requests.each do |request| %>
+        <% @user.incoming_friendships.each do |request| %>
           <li><%= gravatar_for request.user, size: 20 %><%= request.user.name %> | <%= accept_friend(request) %> | <%= reject_friend(request) %></li>
         <% end %>
       </ul>
     <% end %>
-    <% if @friends.any? %>
-      <h4>Friends: <%= @friends.count %></h4>
+    <% if @user.friends.any? %>
+      <h4>Friends: <%= @user.friends.count %></h4>
       <ul>
-        <% @friends.each do |friend| %>
-          <li><%= gravatar_for friend.friend, size: 20 %><%= link_to friend.friend.name, user_path(friend.friend.id), class: 'profile-link' %> | <%= unfriend(friend.friend) %>
+        <% @user.friends.each do |friend| %>
+          <li><%= gravatar_for friend, size: 20 %><%= link_to friend.name, user_path(friend.id), class: 'profile-link' %> | <%= unfriend(friend) %>
         <% end %>
       </ul>
     <% end %>

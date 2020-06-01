@@ -8,8 +8,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.ordered_by_most_recent
-    @pending_requests = @user.inverse_friendships.where(confirmed: false)
-    @friends = @user.friendships.where(confirmed: true)
   end
 
   def send_friend
