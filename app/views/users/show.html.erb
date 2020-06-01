@@ -15,7 +15,7 @@
       <h4>Pending friendship requests</h4>
       <ul>
         <% @pending_requests.each do |request| %>
-          <li><%= request.user.name %> | <%= accept_friend(request) %> | <%= reject_friend(request) %></li>
+          <li><%= gravatar_for request.user, size: 20 %><%= request.user.name %> | <%= accept_friend(request) %> | <%= reject_friend(request) %></li>
         <% end %>
       </ul>
     <% end %>
@@ -23,7 +23,7 @@
       <h4>Friends</h4>
       <ul>
         <% @friends.each do |friend| %>
-          <li><%= link_to friend.friend.name, user_path(friend.friend.id), class: 'profile-link' %> | <%= unfriend(friend.friend) %>
+          <li><%= gravatar_for friend.friend, size: 20 %><%= link_to friend.friend.name, user_path(friend.friend.id), class: 'profile-link' %> | <%= unfriend(friend.friend) %>
         <% end %>
       </ul>
     <% end %>
