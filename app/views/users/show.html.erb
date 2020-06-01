@@ -12,7 +12,7 @@
   <% end %>
   <% if current_user == @user %>
     <% if @pending_requests.any? %>
-      <h4>Pending friendship requests</h4>
+      <h4>Pending friendship requests: <%= @pending_requests.count %></h4>
       <ul>
         <% @pending_requests.each do |request| %>
           <li><%= gravatar_for request.user, size: 20 %><%= request.user.name %> | <%= accept_friend(request) %> | <%= reject_friend(request) %></li>
@@ -20,7 +20,7 @@
       </ul>
     <% end %>
     <% if @friends.any? %>
-      <h4>Friends</h4>
+      <h4>Friends: <%= @friends.count %></h4>
       <ul>
         <% @friends.each do |friend| %>
           <li><%= gravatar_for friend.friend, size: 20 %><%= link_to friend.friend.name, user_path(friend.friend.id), class: 'profile-link' %> | <%= unfriend(friend.friend) %>
