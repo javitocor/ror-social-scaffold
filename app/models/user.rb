@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :pending_friendships, -> { where(confirmed: false) }, class_name: 'Friendship', foreign_key: 'user_id'
   has_many :incoming_friendships, -> { where(confirmed: false) }, class_name: 'Friendship', foreign_key: 'friend_id'
 
+  has_many :friends, through: :confirmed_friendships
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
