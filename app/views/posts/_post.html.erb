@@ -1,6 +1,7 @@
 <li class="post">
   <div>
     <div class='post-attribution' >
+      <%= gravatar_for post.user, size: 20 %>
       <%= link_to post.user.name, user_path(post.user), class: 'post-author' %>
     </div>
     <div class='post-liking'>
@@ -16,7 +17,7 @@
     <% post.comments.each do |comment| %>
       <div class="post-comments">
         <p>
-          <b><%= comment.user.name %>:</b> <%= comment.content %>
+          <b><%= gravatar_for comment.user, size: 15 %> <%= comment.user.name %>:</b> <%= comment.content %>
         </p>
         <span> <%= comment.created_at.strftime("%Y/%m/%d") %> </span>
       </div>
