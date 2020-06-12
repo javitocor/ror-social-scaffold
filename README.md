@@ -138,4 +138,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-No license.
+MIT license.
